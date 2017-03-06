@@ -24,6 +24,8 @@ label the branches and the HEAD.
 * `gitg` still shows a linear series of changes.
 * edit the index.html file in the master branch; switch to the new_feature branch; edit the same lines in the new_feature branch.
 * commit these changes to the new_feature branch.
-* `gitg` now shows diverging branches.
+* `gitg` now shows diverging branches.  Note that the HEAD is the most recent commit on new_feature.
+* `git checkout master`.  Now the HEAD is now the most recent commit on master.
+
 
 ### Step 2:

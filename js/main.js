@@ -3,5 +3,8 @@ function sayHello () {
 }
 
 function new () {
+}
 
+function sayGoodbye() {
+  console.log("Goodbye");
 }

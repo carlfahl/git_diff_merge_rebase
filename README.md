@@ -52,4 +52,4 @@ label the branches and the HEAD.
 * Create a new branch dev from the HEAD (master branch).
   * It is common to have long running branches for development
 * add a new file `js/main.js` in the dev branch. (Make a commit).
-* 
+* Create a branch off dev called new_function.

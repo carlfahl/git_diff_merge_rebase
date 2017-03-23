@@ -3,13 +3,48 @@
 ### Step 1: Create branches, show diffs and merge.
 
 * Create a new git repo, Add README.md and index.html file (default atom html snippet).
+```shell
+mkdir git-examples
+cd git-examples
+git init
+touch README.md
+atom .
+```
+
+* Go to GitHub and create a new repo.
+  * Set the origin of your repo (local) to the GitHub repo.
+```
+git remote add origin <url>
+```
+
+* Run `git diff`
+  * This shows the difference between the staging area and unstaged changes.
+  * git diff can be run on   
+
 * Add, commit and push these changes to github.
-* run `git log` to see the new commit in the history.  run `git status` and `git diff` to see that there are not changes in your working dir.
+```shell
+git add -A .
+git commit -m 'Initial Commit with README'
+git push -u origin master
+```
+---
+* run `git log` to see the new commit in the history.  Run `git status` and `git diff` to see that there are not changes in your working dir.
+
+#### Branching
+
+Git stores data as snapshots
+
+[snapshots]:https://git-scm.com/book/en/v2/images/snapshots.png
+
+* Create a development branch.
 * Create a topic branch `git branch new_feature` then `git checkout new_feature`.  This creates a new branch and makes it your working branch.
 `git checkout -b new_feature` is a short cut that is equivalent to running both commands.
 * run `git branch` to see the branches.  The `*` is the active branch.
 * run `git log --all --graph --decorate --oneline`.  (make an alias to this command - mine is `gitg`) This shows all commits in all the branches and
-label the branches and the HEAD.
+label the branches and the HEAD.  To make the alias:
+```bash
+alias gitg = git log --all --graph --decorate --oneline
+```
 * create `css/style.css` and add content then run `git diff`.  Notice that style.css is not in the diff.  Only tracked files are in the diff.
 * run `git add -A` and `git diff`.  Notice that there is still no output.  Run `git diff --staged` this shows staged changes.
 * add and commit changes.

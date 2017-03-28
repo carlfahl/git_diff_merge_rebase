@@ -203,6 +203,48 @@ Notice that the rebase merged the changes from the new_function branch, but the 
 
 #### More complicated rebase
 
-* From the tip of dev
+* From the tip of `dev`, create a new branch `server` and checkout `server`
+* make a file `server/server.js`
+* commit
+* make a file `route/index.js`
+* commit
+* gitg
+
+```*
+* 1221876 (HEAD -> server) added index route js file
+* 879cba2 added the server js file
+*   c3c129d (devel) merge commit
+|\  
+| * 7ca53cd (new_feature) new_feature branch commit
+* | b1aeee4 devel branch commit
+|/  
+* d61c78e added style.css
+* fef96c8 (master) initial commit
+```
+
+* checkout the previous commit of `server` branch:
+  * `git checkout 879cba2`
+* `git rebase --onto devel server client`
+* `git checkout devel && git merge client`
+  * None of the `server` branch changes were
+* We no longer need the client branch: `git branch -d client`
+
+
+This graphic describes the rebase:
 
 ![](https://git-scm.com/book/en/v2/images/interesting-rebase-2.png)
+
+#### Problems with rebase
+
+* The team repo includes a merge commit (C6)
+* You based work off of C1 and pulled from the server.  You merge your work with the remote, creating C7.
+
+![](https://www.git-scm.com/book/en/v2/images/perils-of-rebasing-2.png)
+
+* Later your co-worker decides to rebase C4 onto C5 (this effectivily removes the C6 merge commit from the server history) `git push --force` allows this.
+
+![](https://www.git-scm.com/book/en/v2/images/perils-of-rebasing-3.png)
+
+* Now you pull from the server.
+
+![](https://www.git-scm.com/book/en/v2/images/perils-of-rebasing-4.png)

@@ -138,6 +138,7 @@ Automatic merge failed; fix conflicts and then commit the result.
 ```
 
 * Git has indicated where in the file both branches contain changes.
+  * Edit the file between `<<<<<<< HEAD`  and `>>>>>>> new_feature` to select the parts of the two commits you want to keep.  Delete the unneeded parts.  Remove `<<<<<<< HEAD`, `>>>>>>> new_feature`, and `=======` lines.
 
 * commit the merge commit.  `gitg` now shows the diverging branches merged.
 * run `git branch --merged` to view branches with work that has been merged.
@@ -159,6 +160,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 * d9a638e update to readme
 * 26988b1 (origin/master) Initial commit of README and index on branch master
 ```
+
+---
 
 ### Step 2: Merging with Rebase
 
@@ -192,4 +195,14 @@ Output of `gitg` now should look like this:
 * 26988b1 Initial commit of README and index on branch master
 ```
 
+![](https://git-scm.com/book/en/v2/images/basic-rebase-3.png)
+
 Notice that the rebase merged the changes from the new_function branch, but the commit history looks linear.
+
+---
+
+#### More complicated rebase
+
+* From the tip of dev
+
+![](https://git-scm.com/book/en/v2/images/interesting-rebase-2.png)
